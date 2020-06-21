@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+	<meta name="theme-color" content="#000000">
+	<meta content="IE=Edge" http-equiv="X-UA-Compatible">
+	<title>Mini apps</title>
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<header>
+		  <nav class="navbar-top">
+    <div class="nav-wrapper">
+		<a href="#" class="back"><img src="img/arrow_left_outline_28.svg" alt=""></a>
+      	<a href="#" class="brand-logo">Аудиокниги</a>
+    </div>
+  </nav>
+	</header>
+		
+		<nav class="nav">
+			<a href="#" class="nav__link">
+				<i class="nav__icon nav__icon-activ"><img src="img/home_outline_28.svg" alt=""></i>
+			</a>
+			<a href="#" class="nav__link">
+			    <i class="nav__icon"><img src="img/list_play_outline_28.svg" alt=""></i>
+			</a>
+			<a href="#" class="nav__link">
+				<i class="nav__icon"><img src="img/home_outline_28.svg" alt=""></i>
+			</a>
+
+			</nav>
+			
+	<!--JS-->
+	<script>
+  		// Sends event to client
+  		vkBridge.send('VKWebAppInit');
+
+  		bridge
+  .send('VKWebAppGetEmail')
+  .then(data => {
+    // Handling received data
+    console.log(data.email);
+  })
+  .catch(error => {
+    // Handling an error
+  });
+	</script>
+	<script src="js/materialize.min.js"></script>
+</body>
+</html>
